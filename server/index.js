@@ -5,7 +5,7 @@ const cors = require("./middlewares/cors");
 const trimBody = require("./middlewares/trimBody");
 const session = require("./middlewares/session");
 const authController = require("./controllers/authController");
-
+const dataController = require("./controllers/dataController");
 const connectionString = "mongodb://localhost:27017/car-market";
 
 async function start() {
@@ -24,6 +24,7 @@ async function start() {
   });
 
   app.use("/api", authController);
+  app.use("/api/catalog", dataController);
 
   app.listen(3030, () => console.log("REST service started"));
 }
