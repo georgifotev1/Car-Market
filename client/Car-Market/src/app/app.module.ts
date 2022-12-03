@@ -6,10 +6,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
+import { MainComponent } from './main/main.component';
 
 @NgModule({
-  declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, CoreModule, NoopAnimationsModule],
+  declarations: [AppComponent, MainComponent],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    CoreModule,
+    NoopAnimationsModule,
+    MatButtonModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
