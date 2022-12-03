@@ -9,7 +9,7 @@ const apiURL = environment.apiUrl;
 })
 export class ApiService {
   constructor(private httpClient: HttpClient) {}
-  loadItems() {
-    return this.httpClient.get(`${apiURL}/cars`); //TODO change with correct url
+  loadCars() {
+    return this.httpClient.get(`${apiURL}/cars`); // Get all cars in database
   }
 }
