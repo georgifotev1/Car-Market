@@ -1,0 +1,32 @@
+.header-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 22px;
+    background-color:white;
+    height: 100px;
+    padding: 0 100px;
+}
+.logo {
+    max-width: 120px;
+}
+.navigation {
+    display: flex;
+    font-weight: bold;
+}
+.navigation a {
+    margin-left: 20px;
+    color: #939598;
+
+}
+.authentication {
+    display: flex;
+}
+.guest {
+    display: flex;
+    align-items: center;
+}
+
+.user {
+    display: none;
+}
