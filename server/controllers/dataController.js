@@ -12,12 +12,7 @@ const { hasUser } = require("../middlewares/guards");
 
 dataController.get("/", async (req, res) => {
   let cars = [];
-  if (req.query.where) {
-    const userId = JSON.parse(req.query.where.split("=")[1]);
-    cars = await getByUserId(userId);
-  } else {
-    cars = await getAll();
-  }
+  cars = await getAll();
   res.json(cars);
 });
 
@@ -66,3 +61,5 @@ dataController.delete("/:id", hasUser(), async (req, res) => {
     res.status(400).json({ message });
   }
 });
+
+module.exports = dataController;

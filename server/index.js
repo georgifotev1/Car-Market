@@ -23,7 +23,7 @@ async function start() {
     res.json({ message: "REST service operational" });
   });
 
-  app.use("/api", authController);
+  app.use("/api/users", authController);
   app.use("/api/catalog", dataController);
 
   app.listen(3030, () => console.log("REST service started"));

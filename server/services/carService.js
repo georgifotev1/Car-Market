@@ -1,4 +1,4 @@
-const Car = require("../models/Cars");
+const Car = require("../models/Car");
 
 async function getAll() {
   return Car.find({});
