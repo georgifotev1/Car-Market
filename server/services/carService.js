@@ -25,6 +25,7 @@ async function update(id, carOffer) {
   existing.mileage = carOffer.mileage;
   existing.description = carOffer.description;
   existing.price = carOffer.price;
+  existing.phoneNumber = carOffer.phoneNumber;
   existing.img = carOffer.img;
   return existing.save();
 }

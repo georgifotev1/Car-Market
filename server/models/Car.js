@@ -26,7 +26,7 @@ const carSchema = new Schema({
   mileage: {
     type: Number,
     required: true,
-    min: [0, "Price must be a positive number"],
+    min: [0, "Mileage must be a positive number"],
   },
   description: {
     type: String,
@@ -37,6 +37,11 @@ const carSchema = new Schema({
     type: Number,
     required: true,
     min: [0.01, "Price must be a positive number"],
+  },
+  phoneNumber: {
+    type: Number,
+    required: true,
+    min: [0.01, "Phone number must be a positive number"],
   },
   img: { type: String, required: [true, "Image URL is required"] },
   _ownerId: { type: ObjectId, ref: "User", required: true },
