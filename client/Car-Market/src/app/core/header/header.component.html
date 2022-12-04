@@ -2,16 +2,16 @@
   <div class="header-nav">
     <img class="logo" src="../../../assets/logo.png" alt="Car-Market" />
     <div class="navigation">
-      <a href="#">Home</a>
+      <a routerLink="/">Home</a>
       <a href="#">About Us</a>
       <div class="authentication">
-        <div class="guest">
-          <a href="#">Login</a>
-          <a href="#">Sign Up</a>
+        <div class="guest" *ngIf="!isLoggedIn">
+          <a routerLink="/auth/login">Login</a>
+          <a routerLink="/auth/register">Sign Up</a>
         </div>
-        <div class="user">
-          <p>Welcome, User</p>
-          <a href="#">Logout</a>
+        <div class="user" *ngIf="isLoggedIn">
+          <p>Welcome, {{ user?.username }}</p>
+          <a routerLink="/auth/logout">Logout</a>
         </div>
       </div>
     </div>

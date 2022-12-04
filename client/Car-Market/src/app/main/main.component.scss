@@ -38,12 +38,13 @@ h3 {
 
 }
 
-.btn {
+.link-to-catalog{
 margin-top: 70px;
 width: 200px;
 height: 60px;
-background: linear-gradient( gray,rgba(16, 16, 16, 0.6));
 color: white;
-font-size: 22px;
+font-size: 24px;
+text-decoration-line:underline;
+text-underline-offset: 5px;
 text-transform: uppercase;
 }
