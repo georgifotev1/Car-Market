@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { AuthService } from '../auth.service';
+// import { Router } from '@angular/router';
+// import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -8,11 +8,12 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  constructor(private router: Router, private authServide: AuthService) {
-    this.authServide.user = {
-      username: 'Gosho',
-      email: 'Gosho@abv.bg',
-    };
-    this.router.navigate(['/']);
-  }
+  // constructor(private router: Router, private authServide: AuthService) {
+  //   this.authServide.user = {
+  //     username: 'Gosho',
+  //     email: 'Gosho@abv.bg',
+  //   };
+  //   this.router.navigate(['/']);
+  // }
+  constructor() {}
 }

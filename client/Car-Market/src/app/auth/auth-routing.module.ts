@@ -7,14 +7,25 @@ const routes: Routes = [
   {
     path: 'auth/login',
     component: LoginComponent,
+    data: {
+      title: 'Login',
+      loginRequired: false,
+    },
   },
   {
     path: 'auth/register',
     component: RegisterComponent,
+    data: {
+      title: 'Register',
+      loginRequired: false,
+    },
   },
   {
     path: 'auth/logout',
     component: LogoutComponent,
+    data: {
+      loginRequired: true,
+    },
   },
 ];
 

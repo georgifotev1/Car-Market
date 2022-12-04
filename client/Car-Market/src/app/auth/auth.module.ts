@@ -8,6 +8,6 @@ import { LogoutComponent } from './logout/logout.component';
 @NgModule({
   declarations: [LoginComponent, RegisterComponent, LogoutComponent],
   imports: [CommonModule, AuthRoutingModule],
-  exports: [LoginComponent, RegisterComponent],
+  exports: [LoginComponent, RegisterComponent, LogoutComponent],
 })
 export class AuthModule {}

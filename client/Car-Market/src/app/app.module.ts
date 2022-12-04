@@ -15,12 +15,12 @@ import { CatalogComponent } from './catalog/catalog.component';
   declarations: [AppComponent, MainComponent, CatalogComponent],
   imports: [
     BrowserModule,
+    AuthModule,
     AppRoutingModule,
     HttpClientModule,
     CoreModule,
     NoopAnimationsModule,
     MatButtonModule,
-    AuthModule,
     RouterModule,
   ],
   providers: [],
