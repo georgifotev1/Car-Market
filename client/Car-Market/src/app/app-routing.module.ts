@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CatalogComponent } from './catalog/catalog.component';
 import { PageNotFoundComponent } from './core/page-not-found/page-not-found.component';
 import { MainComponent } from './main/main.component';
 
@@ -8,6 +9,10 @@ const routes: Routes = [
     path: '',
     pathMatch: 'full',
     component: MainComponent,
+  },
+  {
+    path: 'catalog',
+    component: CatalogComponent,
   },
   {
     path: 'not-found',

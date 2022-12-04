@@ -9,9 +9,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MainComponent } from './main/main.component';
 import { AuthModule } from './auth/auth.module';
 import { RouterModule } from '@angular/router';
+import { CatalogComponent } from './catalog/catalog.component';
 
 @NgModule({
-  declarations: [AppComponent, MainComponent],
+  declarations: [AppComponent, MainComponent, CatalogComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
