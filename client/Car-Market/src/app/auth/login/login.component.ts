@@ -21,6 +21,7 @@ export class LoginComponent {
   ) {}
 
   loginHandler() {
+    console.log(this.form.value);
     this.form.reset();
   }
 }
