@@ -41,3 +41,52 @@ span,
 label {
     font-family: var(--text-font-family);
 }
+
+.form-container{
+    width: 100%;
+    height: 550px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.auth-form {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 20px 15px;
+    font-size: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth-form div {
+    margin: 10px 0;
+}
+
+.auth-form input {
+    padding-left: 10px;
+    margin-left: 10px;
+    font-size: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    font-size: 24px;
+    padding: 8px 16px;
+    text-align: center;
+    background-color: #939598;
+    border-radius: 10px;
+    color: cblack;
+    color: white;
+    border: 1px solid black;
+    margin: 10px 0;
+}
+
+.auth-redirect {
+    color: #939598;
+}

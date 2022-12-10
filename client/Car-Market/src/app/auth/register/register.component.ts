@@ -13,7 +13,7 @@ export class RegisterComponent {
     email: ['', [Validators.required, Validators.email]],
     pass: this.fb.group(
       {
-        password: ['', Validators.minLength(5)],
+        password: ['', [Validators.required, Validators.minLength(5)]],
         rePass: [],
       },
       {

@@ -10,7 +10,7 @@ import { MainComponent } from './main/main.component';
 import { AuthModule } from './auth/auth.module';
 import { RouterModule } from '@angular/router';
 import { CatalogComponent } from './catalog/catalog.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, MainComponent, CatalogComponent],
@@ -24,6 +24,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatButtonModule,
     RouterModule,
     ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
