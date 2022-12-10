@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-// import { Router } from '@angular/router';
-// import { AuthService } from '../auth.service';
+import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -8,12 +9,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  // constructor(private router: Router, private authServide: AuthService) {
-  //   this.authServide.user = {
-  //     username: 'Gosho',
-  //     email: 'Gosho@abv.bg',
-  //   };
-  //   this.router.navigate(['/']);
-  // }
-  constructor() {}
+  form = this.fb.group({
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required, Validators.minLength(5)]],
+  });
+
+  constructor(
+    // private router: Router,
+    // private authServide: AuthService,
+    private fb: FormBuilder
+  ) {}
+
+  loginHandler() {
+    console.log('click');
+  }
 }
