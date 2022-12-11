@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { IUser } from '../shared/interfaces';
 
@@ -10,5 +11,20 @@ export class AuthService {
   get isLoggedIn() {
     return this.user !== null;
   }
-  constructor() {}
+  constructor(private http: HttpClient) {}
+
+  register(username: string, email: string, password: string) {
+    return this.http.post<any>('auth/register', {
+      username,
+      email,
+      password,
+    });
+  }
+
+  login(email: string, password: string) {
+    return this.http.post<any>('auth/login', {
+      email,
+      password,
+    });
+  }
 }

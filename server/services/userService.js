@@ -28,7 +28,7 @@ function parseToken(token) {
   return jwt.verify(token, secret);
 }
 
-async function register(email, username, password) {
+async function register(username, email, password) {
   const existingEmail = await User.findOne({ email }).collation({
     locale: "en",
     strength: 2,
@@ -45,8 +45,8 @@ async function register(email, username, password) {
   }
 
   const user = await User.create({
-    email,
     username,
+    email,
     hashedPassword: await bcrypt.hash(password, 10),
   });
 

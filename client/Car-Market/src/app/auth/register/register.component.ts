@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { sameValueGroupValidator } from 'src/app/shared/validators';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-register',
@@ -22,9 +23,12 @@ export class RegisterComponent {
     ),
   });
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private authService: AuthService) {}
 
   registerHandler() {
-    console.log('click');
+    const { username, email, pass: { password } = {} } = this.form.value;
+    this.authService
+      .register(username!, email!, password!)
+      .subscribe((res) => console.log(res));
   }
 }

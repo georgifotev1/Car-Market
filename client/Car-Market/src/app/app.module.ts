@@ -5,12 +5,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule } from '@angular/material/button';
 import { MainComponent } from './main/main.component';
 import { AuthModule } from './auth/auth.module';
 import { RouterModule } from '@angular/router';
 import { CatalogComponent } from './catalog/catalog.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { appInterceptorProvider } from './app.interceptor';
 
 @NgModule({
   declarations: [AppComponent, MainComponent, CatalogComponent],
@@ -21,12 +20,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     CoreModule,
     NoopAnimationsModule,
-    MatButtonModule,
     RouterModule,
-    ReactiveFormsModule,
-    FormsModule,
   ],
-  providers: [],
+  providers: [appInterceptorProvider],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
