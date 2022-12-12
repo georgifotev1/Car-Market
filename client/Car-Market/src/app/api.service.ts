@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../environments/environment';
-import { ICars } from './shared/interfaces/cars';
+import { AuthService } from './auth/auth.service';
 
 const apiURL = environment.apiUrl;
 
@@ -24,7 +24,8 @@ export class ApiService {
     fuelType: string,
     price: string,
     phoneNumber: string,
-    img: string
+    img: string,
+    _ownerId: string
   ) {
     return this.httpClient.post<any>('catalog/create', {
       make,
@@ -36,6 +37,7 @@ export class ApiService {
       price,
       phoneNumber,
       img,
+      _ownerId,
     });
   }
 }

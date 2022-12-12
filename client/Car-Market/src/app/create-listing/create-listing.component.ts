@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ApiService } from '../api.service';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-create-listing',
@@ -20,7 +21,11 @@ export class CreateListingComponent {
     img: ['', [Validators.required]],
   });
 
-  constructor(private fb: FormBuilder, private apiService: ApiService) {}
+  constructor(
+    private fb: FormBuilder,
+    private apiService: ApiService,
+    private authService: AuthService
+  ) {}
 
   createCarListing() {
     const {
@@ -34,6 +39,8 @@ export class CreateListingComponent {
       phoneNumber,
       img,
     } = this.form.value;
+    const _ownerId = this.authService.user?._id;
+    console.log(_ownerId);
     this.apiService
       .createCar(
         make!,
@@ -44,7 +51,8 @@ export class CreateListingComponent {
         fuelType!,
         price!,
         phoneNumber!,
-        img!
+        img!,
+        _ownerId!
       )
       .subscribe((data) => console.log(data));
   }

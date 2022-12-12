@@ -18,8 +18,8 @@ dataController.get("/", async (req, res) => {
 
 dataController.post("/create", async (req, res) => {
   try {
-    console.log(req);
-    const data = Object.assign({ _ownerId: req.user._id }, req.body);
+    console.log(req.body);
+    const data = req.body;
     const car = await create(data);
     res.json(car);
   } catch (err) {
