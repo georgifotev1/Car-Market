@@ -35,7 +35,7 @@
         </p>
       </ng-container>
     </div>
-    <button class="btn" type="submit">Log In</button>
+    <button [disabled]="form.invalid" class="btn" type="submit">Log In</button>
     <p class="text-center">
       Don't have an account?
       <a class="auth-redirect" routerLink="/auth/register">Register</a>
