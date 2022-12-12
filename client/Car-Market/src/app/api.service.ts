@@ -10,6 +10,6 @@ const apiURL = environment.apiUrl;
 export class ApiService {
   constructor(private httpClient: HttpClient) {}
   loadCars() {
-    return this.httpClient.get(`${apiURL}/catalog`); // Get all cars from database
+    return this.httpClient.get('catalog'); // Get all cars from database
   }
 }
