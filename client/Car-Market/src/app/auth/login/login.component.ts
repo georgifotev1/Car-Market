@@ -15,13 +15,18 @@ export class LoginComponent {
   });
 
   constructor(
-    // private router: Router,
-    // private authServide: AuthService,
+    private router: Router,
+    private authServide: AuthService,
     private fb: FormBuilder
   ) {}
 
   loginHandler() {
-    console.log(this.form.value);
+    const { email, password } = this.form.value;
+    this.authServide.login(email!, password!).subscribe((user) => {
+      localStorage.setItem('id_token', user.accessToken);
+      this.authServide.user = user;
+      this.router.navigate(['/catalog']);
+    });
     this.form.reset();
   }
 }

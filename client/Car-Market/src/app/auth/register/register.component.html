@@ -8,17 +8,17 @@
         formControlName="username"
         placeholder="Username"
       />
-    </div>
-    <ng-container *ngIf="form.get('username')?.touched">
-      <p class="error" *ngIf="form.get('username')?.errors?.['required']">
-        Username is required!
-      </p>
-      <p class="error" *ngIf="form.get('username')?.errors?.['minlength']">
-        Username must be at least 3 characters long!
-      </p>
-      <!-- <p class="error">Username is already taken!</p> -->
-    </ng-container>
 
+      <ng-container *ngIf="form.get('username')?.touched">
+        <p class="error" *ngIf="form.get('username')?.errors?.['required']">
+          Username is required!
+        </p>
+        <p class="error" *ngIf="form.get('username')?.errors?.['minlength']">
+          Username must be at least 3 characters long!
+        </p>
+        <!-- <p class="error">Username is already taken!</p> -->
+      </ng-container>
+    </div>
     <div class="email">
       <label for="email">Email:</label>
       <input
@@ -27,16 +27,17 @@
         formControlName="email"
         placeholder="Email"
       />
+
+      <ng-container *ngIf="form.get('email')?.touched">
+        <p class="error" *ngIf="form.get('email')?.errors?.['required']">
+          Email is required!
+        </p>
+        <!-- <p class="error">Email is already taken!</p> -->
+        <p class="error" *ngIf="form.get('email')?.errors?.['email']">
+          Email is not valid!
+        </p>
+      </ng-container>
     </div>
-    <ng-container *ngIf="form.get('email')?.touched">
-      <p class="error" *ngIf="form.get('email')?.errors?.['required']">
-        Email is required!
-      </p>
-      <!-- <p class="error">Email is already taken!</p> -->
-      <p class="error" *ngIf="form.get('email')?.errors?.['email']">
-        Email is not valid!
-      </p>
-    </ng-container>
     <ng-container formGroupName="pass">
       <div class="password">
         <label for="password">Password:</label>
@@ -46,21 +47,22 @@
           formControlName="password"
           placeholder="*****"
         />
+
+        <ng-container *ngIf="form.get('pass')?.get('password')?.touched">
+          <p
+            class="error"
+            *ngIf="form.get('pass')?.get('password')?.errors?.['required']"
+          >
+            Password is required!
+          </p>
+          <p
+            class="error"
+            *ngIf="form.get('pass')?.get('password')?.errors?.['minlength']"
+          >
+            Password must be at least 5 characters long!
+          </p>
+        </ng-container>
       </div>
-      <ng-container *ngIf="form.get('pass')?.get('password')?.touched">
-        <p
-          class="error"
-          *ngIf="form.get('pass')?.get('password')?.errors?.['required']"
-        >
-          Password is required!
-        </p>
-        <p
-          class="error"
-          *ngIf="form.get('pass')?.get('password')?.errors?.['minlength']"
-        >
-          Password must be at least 5 characters long!
-        </p>
-      </ng-container>
       <div class="rePass">
         <label for="re-pass">Repeat Password:</label>
         <input
@@ -69,15 +71,16 @@
           formControlName="rePass"
           placeholder="*****"
         />
+
+        <ng-container>
+          <p
+            class="error"
+            *ngIf="form.get('pass')?.errors?.['sameValueGroupValidator'] && form.get('pass')?.get('rePass')?.touched"
+          >
+            Passwords don't match!
+          </p>
+        </ng-container>
       </div>
-      <ng-container>
-        <p
-          class="error"
-          *ngIf="form.get('pass')?.errors?.['sameValueGroupValidator'] && form.get('pass')?.get('rePass')?.touched"
-        >
-          Passwords don't match!
-        </p>
-      </ng-container>
     </ng-container>
 
     <button class="btn" type="submit" [disabled]="form.invalid">

@@ -10,6 +10,7 @@ import { AuthModule } from './auth/auth.module';
 import { RouterModule } from '@angular/router';
 import { CatalogComponent } from './catalog/catalog.component';
 import { appInterceptorProvider } from './app.interceptor';
+import { AuthActivate } from './shared/guards/auth.activate';
 
 @NgModule({
   declarations: [AppComponent, MainComponent, CatalogComponent],
@@ -22,7 +23,7 @@ import { appInterceptorProvider } from './app.interceptor';
     NoopAnimationsModule,
     RouterModule,
   ],
-  providers: [appInterceptorProvider],
+  providers: [appInterceptorProvider, AuthActivate],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

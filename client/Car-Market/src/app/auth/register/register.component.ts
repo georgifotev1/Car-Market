@@ -32,9 +32,12 @@ export class RegisterComponent {
 
   registerHandler() {
     const { username, email, pass: { password } = {} } = this.form.value;
-    this.authService.register(username!, email!, password!).subscribe((res) => {
-      this.authService.user = res;
-      this.router.navigate(['/catalog']);
-    });
+    this.authService
+      .register(username!, email!, password!)
+      .subscribe((user) => {
+        this.authService.user = user;
+        localStorage.setItem('id_token', user.accessToken);
+        this.router.navigate(['/catalog']);
+      });
   }
 }

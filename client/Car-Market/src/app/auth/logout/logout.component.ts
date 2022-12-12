@@ -8,8 +8,18 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./logout.component.scss'],
 })
 export class LogoutComponent {
-  constructor(private router: Router, private authServide: AuthService) {
-    this.authServide.user = null;
-    this.router.navigate(['/']);
+  constructor(private router: Router, private authService: AuthService) {
+    this.authService.logout().subscribe({
+      next: () => {
+        this.authService.user = null;
+        localStorage.removeItem('id_token');
+        this.router.navigate(['/']);
+      },
+      error: () => {
+        this.authService.user = null;
+        localStorage.removeItem('id_token');
+        this.router.navigate(['/']);
+      },
+    });
   }
 }

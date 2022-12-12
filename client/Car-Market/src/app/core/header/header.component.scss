@@ -15,15 +15,21 @@
     display: flex;
     font-weight: bold;
 }
-.navigation a {
+.navigation a, .navigation p {
     margin-left: 20px;
     color: #939598;
     text-transform: uppercase;
 }
 .authentication {
     display: flex;
+    margin-left: 20px;
 }
 .guest {
+    display: flex;
+    align-items: center;
+}
+
+.user {
     display: flex;
     align-items: center;
 }
