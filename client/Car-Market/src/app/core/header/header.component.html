@@ -3,13 +3,13 @@
     <img class="logo" src="../../../assets/logo.png" alt="Car-Market" />
     <div class="navigation">
       <a routerLink="/">Home</a>
-      <!-- <a href="#">About Us</a> -->
       <div class="authentication">
         <div class="guest" *ngIf="!isLoggedIn">
           <a routerLink="/auth/login">Login</a>
           <a routerLink="/auth/register">Sign Up</a>
         </div>
         <div class="user" *ngIf="isLoggedIn">
+          <a routerLink="/catalog/create">Sell a car</a>
           <p>Welcome, {{ user?.username }}</p>
           <a routerLink="/auth/logout">Logout</a>
         </div>

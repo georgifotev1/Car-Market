@@ -11,9 +11,18 @@ import { RouterModule } from '@angular/router';
 import { CatalogComponent } from './catalog/catalog.component';
 import { appInterceptorProvider } from './app.interceptor';
 import { AuthActivate } from './shared/guards/auth.activate';
+import { CreateListingComponent } from './create-listing/create-listing.component';
+import { CarDetailsComponent } from './car-details/car-details.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AppComponent, MainComponent, CatalogComponent],
+  declarations: [
+    AppComponent,
+    MainComponent,
+    CatalogComponent,
+    CreateListingComponent,
+    CarDetailsComponent,
+  ],
   imports: [
     BrowserModule,
     AuthModule,
@@ -22,6 +31,8 @@ import { AuthActivate } from './shared/guards/auth.activate';
     CoreModule,
     NoopAnimationsModule,
     RouterModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [appInterceptorProvider, AuthActivate],
   bootstrap: [AppComponent],

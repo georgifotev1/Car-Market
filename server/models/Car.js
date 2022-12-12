@@ -33,6 +33,10 @@ const carSchema = new Schema({
     required: true,
     minlength: [10, "Description must be at least 10 characters long"],
   },
+  fuelType: {
+    type: String,
+    required: true,
+  },
   price: {
     type: Number,
     required: true,

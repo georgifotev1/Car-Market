@@ -1,0 +1,134 @@
+<div class="form-container">
+  <form [formGroup]="form" (ngSubmit)="createCarListing()">
+    <div class="make">
+      <label for="make">Make:</label>
+      <input
+        id="make"
+        type="text"
+        formControlName="make"
+        placeholder="Porsche"
+      />
+      <ng-container *ngIf="form.get('make')?.touched">
+        <p class="error" *ngIf="form.get('make')?.errors?.['required']">
+          Make is required!
+        </p>
+      </ng-container>
+    </div>
+    <div class="model">
+      <label for="model">Model:</label>
+      <input
+        id="model"
+        type="text"
+        formControlName="model"
+        placeholder="Carrera 911"
+      />
+      <ng-container *ngIf="form.get('model')?.touched">
+        <p class="error" *ngIf="form.get('model')?.errors?.['required']">
+          Model is required!
+        </p>
+      </ng-container>
+    </div>
+    <div class="year">
+      <label for="year">Year of production:</label>
+      <input
+        id="year"
+        type="number"
+        formControlName="year"
+        placeholder="2022"
+      />
+      <ng-container *ngIf="form.get('year')?.touched">
+        <p class="error" *ngIf="form.get('year')?.errors?.['required']">
+          Year of production is required!
+        </p>
+      </ng-container>
+    </div>
+    <div class="mileage">
+      <label for="mileage">Mileage:</label>
+      <input
+        id="mileage"
+        type="number"
+        formControlName="mileage"
+        placeholder="10000"
+      />
+      <ng-container *ngIf="form.get('mileage')?.touched">
+        <p class="error" *ngIf="form.get('mileage')?.errors?.['required']">
+          Mileage is required!
+        </p>
+      </ng-container>
+    </div>
+    <div class="description">
+      <label for="description">Description:</label>
+      <textarea
+        id="description"
+        type="text"
+        formControlName="description"
+        placeholder="Very good car!"
+      ></textarea>
+      <ng-container *ngIf="form.get('description')?.touched">
+        <p class="error" *ngIf="form.get('description')?.errors?.['required']">
+          Description is required!
+        </p>
+      </ng-container>
+    </div>
+    <div class="fuelType">
+      <label for="fuelType">Fuel Type:</label>
+      <input
+        id="fuelType"
+        type="text"
+        formControlName="fuelType"
+        placeholder="Gasoline"
+      />
+      <ng-container *ngIf="form.get('fuelType')?.touched">
+        <p class="error" *ngIf="form.get('fuelType')?.errors?.['required']">
+          Fuel Type is required!
+        </p>
+      </ng-container>
+    </div>
+    <div class="price">
+      <label for="price">Price:</label>
+      <input
+        id="price"
+        type="number"
+        formControlName="price"
+        placeholder="20 000$"
+      />
+      <ng-container *ngIf="form.get('price')?.touched">
+        <p class="error" *ngIf="form.get('price')?.errors?.['required']">
+          Price is required!
+        </p>
+      </ng-container>
+    </div>
+    <div class="phoneNumber">
+      <label for="phoneNumber">Phone Number:</label>
+      <input
+        id="phoneNumber"
+        type="text"
+        formControlName="phoneNumber"
+        placeholder="+359 213 2131"
+      />
+      <ng-container *ngIf="form.get('phoneNumber')?.touched">
+        <p class="error" *ngIf="form.get('phoneNumber')?.errors?.['required']">
+          Phone number is required!
+        </p>
+      </ng-container>
+    </div>
+    <div class="img">
+      <label for="img">Image Link:</label>
+      <input
+        id="img"
+        type="text"
+        formControlName="img"
+        placeholder="https://imagelink"
+      />
+      <ng-container *ngIf="form.get('img')?.touched">
+        <p class="error" *ngIf="form.get('img')?.errors?.['required']">
+          Image link is required!
+        </p>
+      </ng-container>
+    </div>
+
+    <button class="btn" type="submit" [disabled]="form.invalid">
+      Create Listing
+    </button>
+  </form>
+</div>

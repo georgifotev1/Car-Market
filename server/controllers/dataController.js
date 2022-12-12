@@ -16,8 +16,9 @@ dataController.get("/", async (req, res) => {
   res.json(cars);
 });
 
-dataController.post("/", hasUser(), async (req, res) => {
+dataController.post("/create", async (req, res) => {
   try {
+    console.log(req);
     const data = Object.assign({ _ownerId: req.user._id }, req.body);
     const car = await create(data);
     res.json(car);

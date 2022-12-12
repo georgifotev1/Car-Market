@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CarDetailsComponent } from './car-details/car-details.component';
 import { CatalogComponent } from './catalog/catalog.component';
 import { PageNotFoundComponent } from './core/page-not-found/page-not-found.component';
+import { CreateListingComponent } from './create-listing/create-listing.component';
 import { MainComponent } from './main/main.component';
 
 const routes: Routes = [
@@ -13,6 +15,14 @@ const routes: Routes = [
   {
     path: 'catalog',
     component: CatalogComponent,
+  },
+  {
+    path: 'catalog/create',
+    component: CreateListingComponent,
+  },
+  {
+    path: 'catalog/:id',
+    component: CarDetailsComponent,
   },
   {
     path: 'not-found',
