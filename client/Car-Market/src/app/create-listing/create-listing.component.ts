@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ApiService } from '../api.service';
 import { AuthService } from '../auth/auth.service';
 
@@ -24,7 +25,8 @@ export class CreateListingComponent {
   constructor(
     private fb: FormBuilder,
     private apiService: ApiService,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {}
 
   createCarListing() {
@@ -40,7 +42,6 @@ export class CreateListingComponent {
       img,
     } = this.form.value;
     const _ownerId = this.authService.user?._id;
-    console.log(_ownerId);
     this.apiService
       .createCar(
         make!,
@@ -54,6 +55,8 @@ export class CreateListingComponent {
         img!,
         _ownerId!
       )
-      .subscribe((data) => console.log(data));
+      .subscribe(() => {
+        this.router.navigate(['/catalog']);
+      });
   }
 }

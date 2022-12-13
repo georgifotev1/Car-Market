@@ -18,9 +18,7 @@ dataController.get("/", async (req, res) => {
 
 dataController.post("/create", async (req, res) => {
   try {
-    console.log(req.body);
-    const data = req.body;
-    const car = await create(data);
+    const car = await create(req.body);
     res.json(car);
   } catch (err) {
     const message = parseError(err);

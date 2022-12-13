@@ -5,6 +5,7 @@ import { CatalogComponent } from './catalog/catalog.component';
 import { PageNotFoundComponent } from './core/page-not-found/page-not-found.component';
 import { CreateListingComponent } from './create-listing/create-listing.component';
 import { MainComponent } from './main/main.component';
+import { CanCreate } from './shared/guards/can.create';
 
 const routes: Routes = [
   {
@@ -18,6 +19,7 @@ const routes: Routes = [
   },
   {
     path: 'catalog/create',
+    canActivate: [CanCreate],
     component: CreateListingComponent,
   },
   {
