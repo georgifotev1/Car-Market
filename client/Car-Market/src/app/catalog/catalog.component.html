@@ -25,7 +25,7 @@
           Price: <span>${{ car.price }}</span>
         </li>
       </ul>
-      <button class="btn" routerLink="/catalog/:id">Details</button>
+      <button class="btn" [routerLink]="['/catalog', car._id]">Details</button>
     </div>
   </div>
 </div>

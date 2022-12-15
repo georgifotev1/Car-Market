@@ -74,9 +74,13 @@ async function logout(token) {
   tokenBlacklist.add(token);
 }
 
+async function findOwnerByID(ownerId) {
+  return User.find({ _id: ownerId });
+}
 module.exports = {
   register,
   login,
   logout,
   parseToken,
+  findOwnerByID,
 };

@@ -5,7 +5,6 @@ const {
   getById,
   update,
   deleteById,
-  getByUserId,
 } = require("../services/carService");
 const { parseError } = require("../util/parser");
 const { hasUser } = require("../middlewares/guards");

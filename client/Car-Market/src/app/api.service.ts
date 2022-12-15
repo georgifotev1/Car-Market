@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../environments/environment';
 import { AuthService } from './auth/auth.service';
+import { ICars } from './shared/interfaces/cars';
 
 const apiURL = environment.apiUrl;
 
@@ -12,7 +13,11 @@ export class ApiService {
   constructor(private httpClient: HttpClient) {}
 
   loadCars() {
-    return this.httpClient.get('catalog'); // Get all cars from database
+    return this.httpClient.get<ICars>('catalog'); // Get all cars from database
+  }
+
+  loadCarById(id: string) {
+    return this.httpClient.get<ICars>('catalog/' + id);
   }
 
   createCar(

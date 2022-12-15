@@ -8,10 +8,6 @@ async function getById(id) {
   return Car.findById(id);
 }
 
-async function getByUserId(userId) {
-  return Car.find({ _ownerId: userId });
-}
-
 async function create(carOffer) {
   return Car.create(carOffer);
 }
@@ -36,7 +32,6 @@ async function deleteById(id) {
 
 module.exports = {
   getAll,
-  getByUserId,
   getById,
   create,
   update,

@@ -8,4 +8,6 @@ export interface ICars {
   price: number;
   phoneNumber: string;
   img: string;
+  _ownerId: string;
+  _id: string;
 }
