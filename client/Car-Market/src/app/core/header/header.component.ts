@@ -12,8 +12,8 @@ export class HeaderComponent {
     return this.authService.isLoggedIn;
   }
 
-  get user() {
-    return this.authService.user;
+  get username() {
+    return sessionStorage.getItem('username');
   }
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService) {}
 }

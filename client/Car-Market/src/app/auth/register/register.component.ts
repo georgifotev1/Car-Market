@@ -36,7 +36,10 @@ export class RegisterComponent {
       .register(username!, email!, password!)
       .subscribe((user) => {
         this.authService.user = user;
-        localStorage.setItem('id_token', user.accessToken);
+        sessionStorage.setItem('id_token', user.accessToken);
+        sessionStorage.setItem('username', user.username);
+        sessionStorage.setItem('email', user.email);
+        sessionStorage.setItem('userId', user._id);
         this.router.navigate(['/catalog']);
       });
   }

@@ -9,7 +9,7 @@ export class AuthService {
   user: IUser | null = null;
 
   get isLoggedIn() {
-    return localStorage.hasOwnProperty('id_token');
+    return sessionStorage.hasOwnProperty('id_token');
   }
 
   constructor(private http: HttpClient) {}

@@ -11,7 +11,7 @@
         </div>
         <div class="user" *ngIf="isLoggedIn">
           <a routerLink="/catalog/create">Sell a car</a>
-          <p>Welcome, {{ user?.username }}</p>
+          <p>Welcome, {{ username }}</p>
           <a routerLink="/auth/logout">Logout</a>
         </div>
       </div>

@@ -23,7 +23,10 @@ export class LoginComponent {
   loginHandler() {
     const { email, password } = this.form.value;
     this.authServide.login(email!, password!).subscribe((user) => {
-      localStorage.setItem('id_token', user.accessToken);
+      sessionStorage.setItem('id_token', user.accessToken);
+      sessionStorage.setItem('username', user.username);
+      sessionStorage.setItem('email', user.email);
+      sessionStorage.setItem('userId', user._id);
       this.authServide.user = user;
       this.router.navigate(['/catalog']);
     });

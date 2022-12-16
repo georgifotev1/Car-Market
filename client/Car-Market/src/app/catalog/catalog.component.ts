@@ -10,6 +10,7 @@ export class CatalogComponent implements OnInit {
   data: any = null;
 
   constructor(private apiService: ApiService) {}
+
   ngOnInit() {
     this.apiService.loadCars().subscribe((res) => {
       this.data = res;

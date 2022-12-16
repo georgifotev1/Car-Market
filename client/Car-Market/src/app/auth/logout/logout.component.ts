@@ -12,12 +12,15 @@ export class LogoutComponent {
     this.authService.logout().subscribe({
       next: () => {
         this.authService.user = null;
-        localStorage.removeItem('id_token');
+        sessionStorage.removeItem('id_token');
         this.router.navigate(['/']);
       },
       error: () => {
         this.authService.user = null;
-        localStorage.removeItem('id_token');
+        sessionStorage.removeItem('id_token');
+        sessionStorage.removeItem('username');
+        sessionStorage.removeItem('email');
+        sessionStorage.removeItem('userId');
         this.router.navigate(['/']);
       },
     });
