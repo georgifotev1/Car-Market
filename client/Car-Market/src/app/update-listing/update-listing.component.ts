@@ -56,6 +56,9 @@ export class UpdateListingComponent implements OnInit {
   }
 
   updateCarListing() {
+    if (this.data?._ownerId !== sessionStorage.getItem('userId')) {
+      return this.router.navigate(['/catalog']);
+    }
     const {
       make,
       model,
@@ -67,7 +70,8 @@ export class UpdateListingComponent implements OnInit {
       phoneNumber,
       img,
     } = this.form.value;
-    this.apiService
+
+    return this.apiService
       .updateCar(
         this.id!,
         make!,

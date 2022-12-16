@@ -13,6 +13,9 @@ export class LogoutComponent {
       next: () => {
         this.authService.user = null;
         sessionStorage.removeItem('id_token');
+        sessionStorage.removeItem('username');
+        sessionStorage.removeItem('email');
+        sessionStorage.removeItem('userId');
         this.router.navigate(['/']);
       },
       error: () => {

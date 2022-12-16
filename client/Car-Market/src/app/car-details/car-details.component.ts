@@ -13,12 +13,11 @@ import { AuthService } from '../auth/auth.service';
 export class CarDetailsComponent implements OnInit {
   id: string | null = null;
   data: ICars | null = null;
-  owner: undefined | string = undefined;
+  userId = sessionStorage.getItem('userId');
 
   constructor(
     private apiService: ApiService,
     private route: ActivatedRoute,
-    private authService: AuthService,
     private router: Router
   ) {}
 
@@ -29,7 +28,6 @@ export class CarDetailsComponent implements OnInit {
         this.id &&
           this.apiService.loadCarById(this.id).subscribe((res) => {
             this.data = res;
-            this.owner = this.authService.user?._id;
           });
       }
     });

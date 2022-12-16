@@ -24,7 +24,7 @@
         Phone Number: <span>{{ data.phoneNumber }}</span>
       </li>
     </ul>
-    <div class="owner-buttons" *ngIf="data._ownerId === owner">
+    <div class="owner-buttons" *ngIf="data._ownerId === userId">
       <button class="btn" [routerLink]="['/catalog', data._id, 'edit']">
         Edit
       </button>
