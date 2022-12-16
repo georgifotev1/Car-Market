@@ -30,12 +30,11 @@ dataController.get("/:id", async (req, res, next) => {
   res.json(car);
 });
 
-dataController.put("/:id", hasUser(), async (req, res, next) => {
-  const car = await getById(req.params.id);
-  if (req.user._id != car._ownerId) {
-    return res.status(403).json({ message: "You cannot modify this record" });
-  }
-
+dataController.put("/:id", async (req, res, next) => {
+  // const car = await getById(req.params.id);
+  // if (req.user._id != car._ownerId) {
+  //   return res.status(403).json({ message: "You cannot modify this record" });
+  // }
   try {
     const result = await update(req.params.id, req.body);
     res.json(result);
@@ -45,11 +44,11 @@ dataController.put("/:id", hasUser(), async (req, res, next) => {
   }
 });
 
-dataController.delete("/:id", hasUser(), async (req, res) => {
-  const car = await getById(req.params.id);
-  if (req.user._id != car._ownerId) {
-    return res.status(403).json({ message: "You cannot modify this record" });
-  }
+dataController.delete("/:id", async (req, res) => {
+  // const car = await getById(req.params.id);
+  // if (req.user._id != car._ownerId) {
+  //   return res.status(403).json({ message: "You cannot modify this record" });
+  // }
 
   try {
     await deleteById(req.params.id);
