@@ -1,31 +1,35 @@
-<ng-container *ngIf="data.length === 0">
-  <div class="no-data">
-    <h2>There are no cars for sale at the moment</h2>
-  </div>
-</ng-container>
+<ng-container *ngIf="data !== null">
+  <ng-container *ngIf="data.length === 0">
+    <div class="no-data">
+      <h2>There are no cars for sale at the moment</h2>
+    </div>
+  </ng-container>
 
-<div class="catalog" *ngIf="data.length > 0">
-  <div class="cars">
-    <div class="car" *ngFor="let car of data">
-      <img class="car-img" src="{{ car.img }}" alt="car-photo" />
-      <ul class="car-info">
-        <li>
-          Brand: <span>{{ car.make }}</span>
-        </li>
-        <li>
-          Model: <span>{{ car.model }}</span>
-        </li>
-        <li>
-          Fuel Type: <span>{{ car.fuelType }}</span>
-        </li>
-        <li>
-          Mileage: <span>{{ car.mileage }} km</span>
-        </li>
-        <li>
-          Price: <span>${{ car.price }}</span>
-        </li>
-      </ul>
-      <button class="btn" [routerLink]="['/catalog', car._id]">Details</button>
+  <div class="catalog" *ngIf="data.length > 0">
+    <div class="cars">
+      <div class="car" *ngFor="let car of data">
+        <img class="car-img" src="{{ car.img }}" alt="car-photo" />
+        <ul class="car-info">
+          <li>
+            Brand: <span>{{ car.make }}</span>
+          </li>
+          <li>
+            Model: <span>{{ car.model }}</span>
+          </li>
+          <li>
+            Fuel Type: <span>{{ car.fuelType }}</span>
+          </li>
+          <li>
+            Mileage: <span>{{ car.mileage }} km</span>
+          </li>
+          <li>
+            Price: <span>${{ car.price }}</span>
+          </li>
+        </ul>
+        <button class="btn" [routerLink]="['/catalog', car._id]">
+          Details
+        </button>
+      </div>
     </div>
   </div>
-</div>
+</ng-container>

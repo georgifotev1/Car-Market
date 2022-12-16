@@ -6,6 +6,7 @@ import { PageNotFoundComponent } from './core/page-not-found/page-not-found.comp
 import { CreateListingComponent } from './create-listing/create-listing.component';
 import { MainComponent } from './main/main.component';
 import { CanCreate } from './shared/guards/can.create';
+import { UpdateListingComponent } from './update-listing/update-listing.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,10 @@ const routes: Routes = [
   {
     path: 'catalog/:id',
     component: CarDetailsComponent,
+  },
+  {
+    path: 'catalog/:id/edit',
+    component: UpdateListingComponent,
   },
   {
     path: 'not-found',

@@ -7,6 +7,7 @@ import { IUser } from '../shared/interfaces';
 })
 export class AuthService {
   user: IUser | null = null;
+
   get isLoggedIn() {
     return localStorage.hasOwnProperty('id_token');
   }

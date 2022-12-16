@@ -1,30 +1,34 @@
-<div class="car" *ngIf="data !== null">
-  <img class="car-img" src="{{ data.img }}" alt="car-photo" />
-  <ul class="car-info">
-    <li>
-      Brand: <span>{{ data.make }}</span>
-    </li>
-    <li>
-      Model: <span>{{ data.model }}</span>
-    </li>
-    <li>
-      Fuel Type: <span>{{ data.fuelType }}</span>
-    </li>
-    <li>
-      Mileage: <span>{{ data.mileage }} km</span>
-    </li>
-    <li>
-      Price: <span>${{ data.price }}</span>
-    </li>
-    <li>
-      Description: <span>{{ data.description }}</span>
-    </li>
-    <li>
-      Phone Number: <span>{{ data.phoneNumber }}</span>
-    </li>
-  </ul>
-  <ng-container *ngIf="data._ownerId === owner">
-    <button>Edit</button>
-    <button>Delete</button>
-  </ng-container>
+<div class="details">
+  <div class="car-details" *ngIf="data !== null">
+    <img class="car-img" src="{{ data.img }}" alt="car-photo" />
+    <ul class="car-info">
+      <li>
+        Brand: <span>{{ data.make }}</span>
+      </li>
+      <li>
+        Model: <span>{{ data.model }}</span>
+      </li>
+      <li>
+        Fuel Type: <span>{{ data.fuelType }}</span>
+      </li>
+      <li>
+        Mileage: <span>{{ data.mileage }} km</span>
+      </li>
+      <li>
+        Price: <span>${{ data.price }}</span>
+      </li>
+      <li>
+        Description: <span>{{ data.description }}</span>
+      </li>
+      <li>
+        Phone Number: <span>{{ data.phoneNumber }}</span>
+      </li>
+    </ul>
+    <div class="owner-buttons" *ngIf="data._ownerId === owner">
+      <button class="btn" [routerLink]="['/catalog', data._id, 'edit']">
+        Edit
+      </button>
+      <button class="btn" (click)="deleteCarListing()">Delete</button>
+    </div>
+  </div>
 </div>

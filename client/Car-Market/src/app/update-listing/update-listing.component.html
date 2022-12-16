@@ -1,5 +1,5 @@
 <div class="form-container">
-  <form [formGroup]="form" class="edit-form" (ngSubmit)="createCarListing()">
+  <form [formGroup]="form" class="edit-form" (ngSubmit)="updateCarListing()">
     <div class="make">
       <label for="make">Make:</label>
       <input
@@ -128,7 +128,7 @@
     </div>
 
     <button class="btn" type="submit" [disabled]="form.invalid">
-      Create Listing
+      Update Listing
     </button>
   </form>
 </div>

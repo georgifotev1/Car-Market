@@ -14,6 +14,7 @@ import { AuthActivate } from './shared/guards/auth.activate';
 import { CreateListingComponent } from './create-listing/create-listing.component';
 import { CarDetailsComponent } from './car-details/car-details.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UpdateListingComponent } from './update-listing/update-listing.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CatalogComponent,
     CreateListingComponent,
     CarDetailsComponent,
+    UpdateListingComponent,
   ],
   imports: [
     BrowserModule,

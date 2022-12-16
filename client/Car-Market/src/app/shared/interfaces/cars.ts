@@ -2,10 +2,10 @@ export interface ICars {
   make: string;
   model: string;
   year: string;
-  mileage: number;
+  mileage: string;
   description: string;
   fuelType: string;
-  price: number;
+  price: string;
   phoneNumber: string;
   img: string;
   _ownerId: string;
