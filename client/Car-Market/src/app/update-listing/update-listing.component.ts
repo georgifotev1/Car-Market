@@ -56,9 +56,6 @@ export class UpdateListingComponent implements OnInit {
   }
 
   updateCarListing() {
-    if (this.data?._ownerId !== sessionStorage.getItem('userId')) {
-      return this.router.navigate(['/catalog']);
-    }
     const {
       make,
       model,
