@@ -15,6 +15,7 @@ import { CreateListingComponent } from './create-listing/create-listing.componen
 import { CarDetailsComponent } from './car-details/car-details.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UpdateListingComponent } from './update-listing/update-listing.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { UpdateListingComponent } from './update-listing/update-listing.componen
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
+    SharedModule,
   ],
   providers: [appInterceptorProvider, AuthActivate],
   bootstrap: [AppComponent],
