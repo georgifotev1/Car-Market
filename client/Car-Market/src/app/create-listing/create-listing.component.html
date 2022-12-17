@@ -12,6 +12,9 @@
         <p class="error" *ngIf="form.get('make')?.errors?.['required']">
           Make is required!
         </p>
+        <p class="error" *ngIf="form.get('make')?.errors?.['minlength']">
+          Make must be at least 2 characters long.
+        </p>
       </ng-container>
     </div>
     <div class="model">
@@ -25,6 +28,9 @@
       <ng-container *ngIf="form.get('model')?.touched">
         <p class="error" *ngIf="form.get('model')?.errors?.['required']">
           Model is required!
+        </p>
+        <p class="error" *ngIf="form.get('model')?.errors?.['minlength']">
+          Model must be at least 2 characters long.
         </p>
       </ng-container>
     </div>
@@ -40,6 +46,12 @@
         <p class="error" *ngIf="form.get('year')?.errors?.['required']">
           Year of production is required!
         </p>
+        <p class="error" *ngIf="form.get('year')?.errors?.['min']">
+          Year cannot be less than 1950.
+        </p>
+        <p class="error" *ngIf="form.get('year')?.errors?.['max']">
+          Year cannot be more than 2022.
+        </p>
       </ng-container>
     </div>
     <div class="mileage">
@@ -54,6 +66,9 @@
         <p class="error" *ngIf="form.get('mileage')?.errors?.['required']">
           Mileage is required!
         </p>
+        <p class="error" *ngIf="form.get('mileage')?.errors?.['min']">
+          Mileage cannot be a negative number.
+        </p>
       </ng-container>
     </div>
     <div class="description">
@@ -67,6 +82,9 @@
       <ng-container *ngIf="form.get('description')?.touched">
         <p class="error" *ngIf="form.get('description')?.errors?.['required']">
           Description is required!
+        </p>
+        <p class="error" *ngIf="form.get('description')?.errors?.['minlength']">
+          Description must be at least 10 characters long.
         </p>
       </ng-container>
     </div>
@@ -96,6 +114,9 @@
         <p class="error" *ngIf="form.get('price')?.errors?.['required']">
           Price is required!
         </p>
+        <p class="error" *ngIf="form.get('price')?.errors?.['min']">
+          Price cannot be a negative number.
+        </p>
       </ng-container>
     </div>
     <div class="phoneNumber">
@@ -109,6 +130,12 @@
       <ng-container *ngIf="form.get('phoneNumber')?.touched">
         <p class="error" *ngIf="form.get('phoneNumber')?.errors?.['required']">
           Phone number is required!
+        </p>
+        <p class="error" *ngIf="form.get('phoneNumber')?.errors?.['minlength']">
+          Phone number must be 10 characters long.
+        </p>
+        <p class="error" *ngIf="form.get('phoneNumber')?.errors?.['maxlength']">
+          Phone number must be 10 characters long.
         </p>
       </ng-container>
     </div>

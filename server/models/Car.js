@@ -8,12 +8,12 @@ const carSchema = new Schema({
   make: {
     type: String,
     required: true,
-    minlength: [3, "Make must be at least 3 characters long"],
+    minlength: [2, "Make must be at least 2 characters long"],
   },
   model: {
     type: String,
     required: true,
-    minlength: [3, "Model must be at least 3 characters long"],
+    minlength: [2, "Model must be at least 2 characters long"],
   },
   year: {
     type: Number,
@@ -40,12 +40,11 @@ const carSchema = new Schema({
   price: {
     type: Number,
     required: true,
-    min: [0.01, "Price must be a positive number"],
+    min: [0, "Price must be a positive number"],
   },
   phoneNumber: {
     type: Number,
     required: true,
-    min: [0.01, "Phone number must be a positive number"],
   },
   img: { type: String, required: [true, "Image URL is required"] },
   _ownerId: { type: ObjectId, ref: "User", required: true },
