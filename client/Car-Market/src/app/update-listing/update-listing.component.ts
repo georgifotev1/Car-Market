@@ -14,14 +14,20 @@ export class UpdateListingComponent implements OnInit {
   data: ICars | null = null;
 
   form = this.fb.group({
-    make: ['', [Validators.required]],
-    model: ['', [Validators.required]],
-    year: ['', [Validators.required]],
-    mileage: ['', [Validators.required]],
-    description: ['', [Validators.required]],
+    make: ['', [Validators.required, Validators.minLength(2)]],
+    model: ['', [Validators.required, Validators.minLength(2)]],
+    year: [
+      '',
+      [Validators.required, Validators.min(1950), Validators.max(2022)],
+    ],
+    mileage: ['', [Validators.required, Validators.min(0)]],
+    description: ['', [Validators.required, Validators.minLength(10)]],
     fuelType: ['', [Validators.required]],
-    price: ['', [Validators.required]],
-    phoneNumber: ['', [Validators.required]],
+    price: ['', [Validators.required, Validators.min(0)]],
+    phoneNumber: [
+      '',
+      [Validators.required, Validators.minLength(10), Validators.maxLength(10)],
+    ],
     img: ['', [Validators.required]],
   });
 
