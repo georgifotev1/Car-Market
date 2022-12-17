@@ -41,7 +41,7 @@ export class CreateListingComponent {
       phoneNumber,
       img,
     } = this.form.value;
-    const _ownerId = this.authService.user?._id;
+    const _ownerId = sessionStorage.getItem('userId');
     this.apiService
       .createCar(
         make!,

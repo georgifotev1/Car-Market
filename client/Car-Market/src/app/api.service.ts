@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../environments/environment';
 import { ICars } from './shared/interfaces/cars';
+import { IUser } from './shared/interfaces';
 
 const apiURL = environment.apiUrl;
 
@@ -17,6 +18,10 @@ export class ApiService {
 
   loadCarById(id: string) {
     return this.httpClient.get<ICars>('catalog/' + id);
+  }
+
+  getOwner(id: string) {
+    return this.httpClient.get<IUser>('catalog/owner/' + id);
   }
 
   updateCar(

@@ -8,6 +8,7 @@ const {
 } = require("../services/carService");
 const { parseError } = require("../util/parser");
 const { hasUser } = require("../middlewares/guards");
+const { findOwnerByID } = require("../services/userService");
 
 dataController.get("/", async (req, res) => {
   let cars = [];
@@ -30,6 +31,10 @@ dataController.get("/:id", async (req, res, next) => {
   res.json(car);
 });
 
+dataController.get("/owner/:id", async (req, res, next) => {
+  const owner = await findOwnerByID(req.params.id);
+  res.json(owner[0]);
+});
 dataController.put("/:id", async (req, res, next) => {
   // const car = await getById(req.params.id);
   // if (req.user._id != car._ownerId) {
