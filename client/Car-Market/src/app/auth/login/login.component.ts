@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { retry } from 'rxjs';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class LoginComponent {
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(5)]],
   });
-
+  responseError = null;
   constructor(
     private router: Router,
     private authServide: AuthService,
@@ -22,14 +23,18 @@ export class LoginComponent {
 
   loginHandler() {
     const { email, password } = this.form.value;
-    this.authServide.login(email!, password!).subscribe((user) => {
-      sessionStorage.setItem('id_token', user.accessToken);
-      sessionStorage.setItem('username', user.username);
-      sessionStorage.setItem('email', user.email);
-      sessionStorage.setItem('userId', user._id);
-      this.authServide.user = user;
-      this.router.navigate(['/catalog']);
-    });
-    this.form.reset();
+    this.authServide.login(email!, password!).subscribe(
+      (res) => {
+        sessionStorage.setItem('id_token', res.accessToken);
+        sessionStorage.setItem('username', res.username);
+        sessionStorage.setItem('email', res.email);
+        sessionStorage.setItem('userId', res._id);
+        this.authServide.user = res;
+        this.router.navigate(['/catalog']);
+      },
+      (error) => {
+        this.responseError = error.error.message;
+      }
+    );
   }
 }

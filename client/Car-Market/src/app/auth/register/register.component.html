@@ -82,7 +82,7 @@
         </ng-container>
       </div>
     </ng-container>
-
+    <div class="error" *ngIf="responseError">{{ responseError }}</div>
     <button class="btn" type="submit" [disabled]="form.invalid">
       Register
     </button>

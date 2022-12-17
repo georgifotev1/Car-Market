@@ -23,6 +23,7 @@ export class RegisterComponent {
       }
     ),
   });
+  responseError = null;
 
   constructor(
     private fb: FormBuilder,
@@ -32,15 +33,16 @@ export class RegisterComponent {
 
   registerHandler() {
     const { username, email, pass: { password } = {} } = this.form.value;
-    this.authService
-      .register(username!, email!, password!)
-      .subscribe((user) => {
+    this.authService.register(username!, email!, password!).subscribe(
+      (user) => {
         this.authService.user = user;
         sessionStorage.setItem('id_token', user.accessToken);
         sessionStorage.setItem('username', user.username);
         sessionStorage.setItem('email', user.email);
         sessionStorage.setItem('userId', user._id);
         this.router.navigate(['/catalog']);
-      });
+      },
+      (error) => (this.responseError = error.error.message)
+    );
   }
 }

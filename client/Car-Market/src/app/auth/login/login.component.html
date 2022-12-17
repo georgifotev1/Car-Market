@@ -35,6 +35,7 @@
         </p>
       </ng-container>
     </div>
+    <div class="error" *ngIf="responseError">{{ responseError }}</div>
     <button [disabled]="form.invalid" class="btn" type="submit">Log In</button>
     <p class="text-center">
       Don't have an account?
