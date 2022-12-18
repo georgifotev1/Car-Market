@@ -7,7 +7,7 @@
       <div class="authentication">
         <div class="guest" *ngIf="!isLoggedIn">
           <a routerLink="/auth/login">Login</a>
-          <a routerLink="/auth/register">Sign Up</a>
+          <a routerLink="/auth/register">Register</a>
         </div>
         <div class="user" *ngIf="isLoggedIn">
           <a routerLink="/catalog/create">Sell a car</a>
