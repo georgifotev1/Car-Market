@@ -1,13 +1,25 @@
 <div class="catalog">
-  <ng-container *ngIf="data === null"><app-spinner></app-spinner></ng-container>
-  <ng-container *ngIf="data !== null">
-    <ng-container *ngIf="data.length === 0">
+  <ng-container *ngIf="cars === null"><app-spinner></app-spinner></ng-container>
+  <ng-container *ngIf="cars !== null">
+    <div class="search">
+      <div class="search-box">
+        <label for="search">Search: </label>
+        <input
+          type="text"
+          name="searchText"
+          placeholder="Car Brand"
+          [(ngModel)]="searchText"
+          (input)="search(searchText)"
+        />
+      </div>
+    </div>
+    <ng-container *ngIf="cars.length === 0">
       <div class="no-data">
-        <h2>There are no cars for sale at the moment</h2>
+        <h2>There are no car listings found</h2>
       </div>
     </ng-container>
-    <div class="cars" *ngIf="data.length > 0">
-      <div class="car" *ngFor="let car of data">
+    <div class="cars" *ngIf="cars.length > 0">
+      <div class="car" *ngFor="let car of cars">
         <img class="car-img" src="{{ car.img }}" alt="car-photo" />
         <ul class="car-info">
           <li>
